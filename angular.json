@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/sweetalert2/dist/sweetalert2.all.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "eff74035-0788-4f3e-95ec-aad55d46e157"
   }
 }
