@@ -98,7 +98,7 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto pl-5 pr-5">
               <h3 class="login-heading mb-4">Sign up as a seller and receive special offers!</h3>
-              <form >
+              <form [formGroup]="registerMerchantForm" (ngSubmit)="registerMerchant()">
                 <div class="form-label-group mb-4">
                   <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter name">
                   <label for="name">Enter name</label>
@@ -113,7 +113,8 @@
                   <!--                  <input type="text" id="avatar" formControlName="avatar" class="form-control" placeholder="Enter avatar">-->
                   <input type="file"
                          id="avatar"
-                         #userPhoto
+                         #uploadFileMerchant
+                         (change)="UploadFileImg()"
                          name="image"
                          autocomplete="off"
                          class="form-control"
@@ -125,7 +126,8 @@
                   <!--                  <input type="text" id="avatar" formControlName="avatar" class="form-control" placeholder="Enter avatar">-->
                   <input type="file"
                          id="imageBanner"
-                         #userPhoto
+                         #uploadFileMerchantBanner
+                         (change)="UploadFileImgBanner()"
                          name="imageBanner"
                          autocomplete="off"
                          class="form-control"

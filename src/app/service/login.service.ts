@@ -22,4 +22,8 @@ export class LoginService {
     // console.log("customer",customer);
     return this.http.post<any>("http://localhost:8080/api/login-register/register-customer",customer);
   }
+  registerMerchant(merchant: any): Observable<any>{
+    return this.http.post<any>("http://localhost:8080/api/login-register/register-merchant",merchant);
+  }
+
 }

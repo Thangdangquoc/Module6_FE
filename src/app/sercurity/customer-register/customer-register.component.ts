@@ -3,7 +3,6 @@ import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {LoginService} from "../../service/login.service";
 import {Router} from "@angular/router";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
-import {Customer} from "../../model/customer";
 import {finalize} from "rxjs/operators";
 
 @Component({
@@ -79,6 +78,7 @@ export class CustomerRegisterComponent implements OnInit {
       name: this.registerCustomerForm.value.name,
       avatar: this.url,
       phoneNumber: this.registerCustomerForm.value.phoneNumber,
+      address:  this.registerCustomerForm.value.address,
       appUser: {
         username: this.registerCustomerForm.value.appUser?.username,
         password: this.registerCustomerForm.value.appUser?.password,
@@ -95,14 +95,15 @@ export class CustomerRegisterComponent implements OnInit {
       this.loginService.registerCustomer(this.customer).subscribe((data:any) => {
         alert("chung toi dang xac nhan")
         // console.log("data-username" + data);
-        // if (data) {
-        //     console.log("data");
-        //     console.log(data);
-        //     alert("chung toi dang xac nhan")
+        if (data) {
+            console.log("data");
+            console.log(data);
+            alert("chung toi dang xac nhan");
            this.router.navigate(["/register-customer"]);
-        // } else {
-        //   this.router.navigate(["/login"]);
-        // }
+        } else {
+          alert("email da dc sd");
+          this.router.navigate(["/register-customer"]);
+        }
       })
 
     } else {
