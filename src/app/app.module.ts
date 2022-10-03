@@ -9,6 +9,13 @@ import { LoginComponent } from './sercurity/login/login.component';
 import { CustomerRegisterComponent } from './sercurity/customer-register/customer-register.component';
 import { MerchantRegisterComponent } from './sercurity/merchant-register/merchant-register.component';
 import { HomeComponent } from './showhome/home/home.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+
 
 @NgModule({
   declarations: [
@@ -21,8 +28,14 @@ import { HomeComponent } from './showhome/home/home.component';
     HomeComponent
   ],
   imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig, "cloud"),
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
